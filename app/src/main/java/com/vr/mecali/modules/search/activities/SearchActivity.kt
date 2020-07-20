@@ -16,7 +16,5 @@ class SearchActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_search)
         binding.lifecycleOwner = this
-        val viewModel: SearchViewModel = getViewModel()
-        viewModel.excecuteSearch("Galaxy S20")
     }
 }
