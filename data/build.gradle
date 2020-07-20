@@ -51,4 +51,6 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$loggin_interceptor_version"
     // Retrofit Implementation ----------------------------------------------------
+
+    implementation project(path: ':domain')
 }
