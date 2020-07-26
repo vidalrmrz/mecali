@@ -18,10 +18,10 @@ android {
 
     buildTypes {
         debug{
-            buildConfigField("String", "BASE_URL", '"https://api.mercadolibre.com/sites/MCO/"')
+            buildConfigField("String", "BASE_URL", '"https://api.mercadolibre.com/"')
         }
         release {
-            buildConfigField("String", "BASE_URL", "https://api.mercadolibre.com/sites/MCO/")
+            buildConfigField("String", "BASE_URL", "https://api.mercadolibre.com/")
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }

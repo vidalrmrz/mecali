@@ -12,12 +12,19 @@
         tools:layout="@layout/fragment_search">
         <action
             android:id="@+id/action_search_fragment_dest_to_detail_fragment_dest"
-            app:destination="@id/detail_fragment_dest" />
+            app:destination="@id/detail_fragment_dest"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popUpTo="@id/search_fragment_dest" />
     </fragment>
 
     <fragment
         android:id="@+id/detail_fragment_dest"
         android:name="com.vr.mecali.modules.detail.fragment.DetailFragment"
         android:label="DetailFragment"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="item"
+            app:argType="com.vr.domain.entities.ItemEntity" />
+    </fragment>
 </navigation>
