@@ -17,7 +17,7 @@ android {
     }
 
     buildTypes {
-        debug{
+        debug {
             buildConfigField("String", "BASE_URL", '"https://api.mercadolibre.com/"')
         }
         release {
@@ -51,6 +51,27 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$loggin_interceptor_version"
     // Retrofit Implementation ----------------------------------------------------
+
+    // Testing ---------------------------------------------------------
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation "junit:junit:$junit_version"
+    testImplementation "org.mockito:mockito-core:${mockito_version}"
+    testImplementation "org.mockito:mockito-inline:${mockito_version}"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockito_kotlin_version}"
+    // Power mock
+    testImplementation "org.powermock:powermock:${powermock_version}"
+    testImplementation "org.powermock:powermock-module-junit4:${powermock_module_api_version}"
+    testImplementation "org.powermock:powermock-api-mockito2:${powermock_module_api_version}"
+    testImplementation "org.powermock:powermock-module-junit4:${powermock_module_api_version}"
+    androidTestImplementation "androidx.test:core:$test_version"
+    androidTestImplementation "androidx.test:runner:$test_version"
+    androidTestImplementation "androidx.test:rules:$junit_rules_version"
+    androidTestImplementation "androidx.test.ext:junit:$junit_ext_version"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines"
+    testImplementation "android.arch.core:core-testing:2.1.0"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines"
+    testImplementation "android.arch.core:core-testing:2.1.0"
+    // Testing ---------------------------------------------------------
 
     implementation project(path: ':domain')
 }

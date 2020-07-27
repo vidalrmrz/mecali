@@ -1,7 +1,7 @@
 package com.vr.domain.entities
 
 data class SellerEntity(
-    val id: Long,
-    val cardDealer: Boolean,
-    val realEstateAgency: Boolean
+    val id: Long = 0,
+    val cardDealer: Boolean = false,
+    val realEstateAgency: Boolean = false
 )

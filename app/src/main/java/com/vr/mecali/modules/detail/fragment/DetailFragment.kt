@@ -9,7 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
-import androidx.viewpager2.widget.ViewPager2
+import androidx.viewpager2.widget.ViewPager2.ORIENTATION_HORIZONTAL
+import com.google.android.material.tabs.TabLayoutMediator
 import com.vr.mecali.common.BaseFragment
 import com.vr.mecali.databinding.FragmentDetailBinding
 import com.vr.mecali.modules.detail.viewmodel.DetailViewModel
@@ -49,7 +50,13 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
         viewModel.pictures.observe(viewLifecycleOwner, Observer {
             val adapter = ViewPagerAdapter(viewModel.pictures.value)
             binding.viewPagerCarousel.adapter = adapter
-            binding.viewPagerCarousel.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+            binding.viewPagerCarousel.orientation = ORIENTATION_HORIZONTAL
+            TabLayoutMediator(
+                binding.tabLayoutIndicator,
+                binding.viewPagerCarousel
+            ) { _, _ ->
+
+            }.attach()
         })
     }
 }
