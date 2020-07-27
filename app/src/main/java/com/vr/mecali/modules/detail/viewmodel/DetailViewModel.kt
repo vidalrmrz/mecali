@@ -11,8 +11,13 @@ import com.vr.mecali.common.BaseViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlin.coroutines.CoroutineContext
 
-class DetailViewModel(val scoreUseCase: ScoreUseCase, val itemDetailUseCase: ItemDetailUseCase) :
+class DetailViewModel(
+    private val scoreUseCase: ScoreUseCase,
+    private val itemDetailUseCase: ItemDetailUseCase,
+    private val ioContext: CoroutineContext = Dispatchers.IO
+) :
     BaseViewModel() {
     private val _itemDetail = MutableLiveData<ItemEntity>()
     val itemDetail: LiveData<ItemEntity> get() = _itemDetail
@@ -26,15 +31,11 @@ class DetailViewModel(val scoreUseCase: ScoreUseCase, val itemDetailUseCase: Ite
     fun setDetailItem(itemEntity: ItemEntity) {
         _itemDetail.value = itemEntity
         viewModelScope.launch {
-            withContext(Dispatchers.IO) {
-                scoreUseCase.run(itemEntity.id).fold({
-
-                }, {
+            withContext(ioContext) {
+                scoreUseCase.run(itemEntity.id).fold({}, {
                     _itemScore.postValue(it.average.toString())
                 })
-                itemDetailUseCase.run(itemEntity.id).fold({
-
-                }, {
+                itemDetailUseCase.run(itemEntity.id).fold({}, {
                     _pictures.postValue(it.pictures)
                 })
             }

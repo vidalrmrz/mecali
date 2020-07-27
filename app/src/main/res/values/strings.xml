@@ -2,4 +2,5 @@
     <string name="app_name">Mecali</string>
     <string name="sold">Vendidos: %1$s</string>
     <string name="available">Disponibles: %1$s</string>
+    <string name="score">Calificación: %1$s</string>
 </resources>

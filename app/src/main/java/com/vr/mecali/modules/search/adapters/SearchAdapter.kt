@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.vr.domain.entities.ItemEntity
 
-class SearchAdapter(val onClick: (ItemEntity) -> Unit) :
+class SearchAdapter(private val onClick: (ItemEntity) -> Unit) :
     ListAdapter<ItemEntity, RecyclerView.ViewHolder>(ItemEntityDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         ViewHolderSearch.from(parent)

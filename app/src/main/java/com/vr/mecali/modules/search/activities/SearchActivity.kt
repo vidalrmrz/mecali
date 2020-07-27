@@ -5,8 +5,6 @@ import androidx.databinding.DataBindingUtil
 import com.vr.mecali.R
 import com.vr.mecali.common.BaseActivity
 import com.vr.mecali.databinding.ActivitySearchBinding
-import com.vr.mecali.modules.search.viewmodel.SearchViewModel
-import org.koin.android.viewmodel.ext.android.getViewModel
 
 class SearchActivity : BaseActivity() {
 

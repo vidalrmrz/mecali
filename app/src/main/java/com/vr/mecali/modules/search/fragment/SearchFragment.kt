@@ -1,6 +1,6 @@
 package com.vr.mecali.modules.search.fragment
 
-import android.content.Context
+import android.content.Context.INPUT_METHOD_SERVICE
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -22,7 +22,7 @@ import org.koin.android.viewmodel.ext.android.getViewModel
 class SearchFragment : BaseFragment<FragmentSearchBinding>() {
 
     lateinit var viewModel: SearchViewModel
-    var adapter: SearchAdapter? = null
+    private var adapter: SearchAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -57,9 +57,9 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
             }
 
             override fun onQueryTextSubmit(query: String): Boolean {
-                viewModel.excecuteSearch(query)
+                viewModel.executeSearch(query)
                 val imm: InputMethodManager =
-                    requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    requireActivity().getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
                 imm.hideSoftInputFromWindow(view!!.windowToken, 0)
                 return true
             }
